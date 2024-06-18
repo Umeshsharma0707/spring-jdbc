@@ -53,7 +53,8 @@ public class App {
 			System.out.println("total deleted rows : " + result);
 		}
 		*/
-		Developer d = new Developer();
+		
+		/*Developer d = new Developer();
 		
 		d.setId(3);
 		d.setName("rahul");
@@ -64,6 +65,7 @@ public class App {
 		
 		System.out.println("total rows updated : " + updatedRows);
 	
+	*/
 	
 		
 	/*
