@@ -1,5 +1,7 @@
 package com.spring.jdbc.practice;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,7 +17,28 @@ public class App {
 		DeveloperDao dao = context.getBean("dao",DeveloperDao.class);
 		
 		
-		Developer d1 = new Developer();
+		List<Developer> allDevelopers = dao.getAllDevelopers();
+		
+		for(Developer d : allDevelopers) {
+			System.out.println(d);
+		}
+		
+		/*
+		Developer developer = new Developer();
+		
+		int id = 4;
+		
+		try {
+			Developer developer1 = dao.getDeveloper(id);
+			System.out.println(developer1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(id + " : is not found");
+			
+		}
+		*/
+	/*	Developer d1 = new Developer();
 		
 		d1.setId(3);
 		int result = 0;
@@ -29,7 +52,7 @@ public class App {
 		finally {
 			System.out.println("total deleted rows : " + result);
 		}
-		
+		*/
 	/*	Developer d = new Developer();
 		
 		d.setId(3);
@@ -44,11 +67,11 @@ public class App {
 	
 		
 	/*
-	 * d.setName("shivam"); d.setLanguage("java"); d.setSalary(95000); int result =
-	 * dao.insertDeveloper(d);
+	 * Developer d = new Developer(); d.setName("shivam"); d.setLanguage("java");
+	 * d.setSalary(95000); int result = dao.insertDeveloper(d);
 	 * System.out.println("row affected in developer table : " + result);
+	 * 
 	 */
-		
 		
 		
 	}

@@ -1,6 +1,9 @@
 package com.spring.jdbc.practice.dao;
 
+import java.util.List;
+
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import com.spring.jdbc.practice.entities.Developer;
 
@@ -39,6 +42,30 @@ public class DeveloperDao implements DeveloperInterface {
 		String sql = "delete from developer where id = ?";
 		int result = this.jdbcTemplate.update(sql,developer.getId());
 		return result;
+	}
+
+	// get single developer object method
+	@Override
+	public Developer getDeveloper(int developerid) {
+		// selecting single developer data
+		
+		String sql = "select * from developer where id = ?";
+		
+		RowMapper<Developer> rowMapper = new RowMapperImpl();
+		Developer developer = this.jdbcTemplate.queryForObject(sql, rowMapper, developerid);
+		
+		return developer;
+	}
+
+	// get all developers method
+	@Override
+	public List<Developer> getAllDevelopers() {
+		// selecting all developers
+		
+		String sql = "select * from developer";
+		RowMapper<Developer> rowMapper = new RowMapperImpl();
+		List<Developer> developers = this.jdbcTemplate.query(sql, rowMapper);
+		return developers;
 	}
 
 }
