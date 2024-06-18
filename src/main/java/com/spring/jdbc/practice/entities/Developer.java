@@ -1,6 +1,7 @@
 package com.spring.jdbc.practice.entities;
 
 public class Developer {
+		private int id;
 		private String name;
 		private String language;
 		private double salary;
@@ -22,9 +23,16 @@ public class Developer {
 		public void setSalary(double salary) {
 			this.salary = salary;
 		}
+		
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
 		@Override
 		public String toString() {
-			return "Developer [name=" + name + ", language=" + language + ", salary=" + salary + "]";
+			return "Developer [id=" + id + ", name=" + name + ", language=" + language + ", salary=" + salary + "]";
 		}
 		
 		

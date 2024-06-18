@@ -14,15 +14,42 @@ public class App {
 		
 		DeveloperDao dao = context.getBean("dao",DeveloperDao.class);
 		
-		Developer d = new Developer();
 		
-		d.setName("umesh");
-		d.setLanguage("java");
-		d.setSalary(95000);
+		Developer d1 = new Developer();
 		
-		int result = dao.insertDeveloper(d);
+		d1.setId(3);
+		int result = 0;
+		try {
+			 result = dao.deleteDeveloper(d1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("error in deleting developer");
+		}
+		finally {
+			System.out.println("total deleted rows : " + result);
+		}
 		
-		System.out.println("row affected in developer table : " + result);
+	/*	Developer d = new Developer();
+		
+		d.setId(3);
+		d.setName("rahul");
+		d.setLanguage("python");
+		d.setSalary(95600);
+		
+		int updatedRows = dao.UpdateDeveloper(d);
+		
+		System.out.println("total rows updated : " + updatedRows);
+	*/	
+	
+		
+	/*
+	 * d.setName("shivam"); d.setLanguage("java"); d.setSalary(95000); int result =
+	 * dao.insertDeveloper(d);
+	 * System.out.println("row affected in developer table : " + result);
+	 */
+		
+		
 		
 	}
 }
